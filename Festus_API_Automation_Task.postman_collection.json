@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "cc12998f-912a-405f-8340-1e7120857979",
+		"name": "Festus API Automation Task",
+		"description": "traning on API testing using postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "CREATE USER",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3e660abf-3f58-45e4-8e11-e4dcd6f226f4",
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"pm.test(\"Status code name has created as string\", function () {\r",
+											"    pm.response.to.have.status(\"Created\");\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"morpheus\",);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"leader\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://reqres.in/api/users\n\n",
+									"protocol": "https",
+									"host": [
+										"reqres",
+										"in"
+									],
+									"path": [
+										"api",
+										"users\n\n"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LOGIN USER",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8dfec22f-38f0-48d8-9ed1-ddf5bb298390",
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"pm.test(\"Status code has created as string\", function () {\r",
+											"    pm.response.to.have.status(\"Created\");\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"eve.holt@reqres.in\",);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n\t\"email\": \"eve.holt@reqres.in\",\r\n\t\"password\": \"cityslicka\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://reqres.in/api/login\n\n",
+									"protocol": "https",
+									"host": [
+										"reqres",
+										"in"
+									],
+									"path": [
+										"api",
+										"login\n\n"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "SINGLE USER",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "533211e6-d4b4-4e0e-905c-d8d70e12790f",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Status code has OK as string\", function () {\r",
+											"    pm.response.to.have.status(\"OK\");\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"janet.weaver@reqres.in\",);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://reqres.in/api/users/2\n",
+									"protocol": "https",
+									"host": [
+										"reqres",
+										"in"
+									],
+									"path": [
+										"api",
+										"users",
+										"2\n"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ALL USER",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bb51a533-fe53-4f2d-8cdd-84e35bf85f51",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Status code has OK as string\", function () {\r",
+											"    pm.response.to.have.status(\"OK\");\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"michael.lawson@reqres.in\",);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"lindsay.ferguson@reqres.in\");\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"tobias.funke@reqres.in\",);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"byron.fields@reqres.in\",);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"george.edwards@reqres.in\",);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"rachel.howell@reqres.in\",);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://reqres.in/api/users?page=2\n\n",
+									"protocol": "https",
+									"host": [
+										"reqres",
+										"in"
+									],
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2\n\n"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "DELETE USER",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2a63954b-5895-4a89-9282-d4b4b459f1de",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {\r",
+											"    pm.response.to.have.status(204);\r",
+											"});\r",
+											"pm.test(\"Status code has No Content as string\", function () {\r",
+											"    pm.response.to.have.status(\"No Content\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://reqres.in/api/users/2\n",
+									"protocol": "https",
+									"host": [
+										"reqres",
+										"in"
+									],
+									"path": [
+										"api",
+										"users",
+										"2\n"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "PUT",
+					"item": [],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "apikey"
+	},
+	"protocolProfileBehavior": {}
+}
